@@ -5,235 +5,201 @@ PROJE        : Ön Muhasebe (Windows için yerel masaüstü uygulaması)
 TEKNOLOJİ    : Rust + egui/eframe + SQLite (rusqlite, bundled)
 SÜRÜM        : 1.0.0
 ŞEMA         : v7 (değişmedi)
-AŞAMA        : 17 - İnsan geliştirici belgeleri (yalnızca belge)
-DURUM        : TAMAMLANDI - 4 yeni belge + README bağlantıları, kalite kontrol temiz
-TARİH        : 28.10.2026
+AŞAMA        : 18 - GitHub deposu, CI, Release 1.0.0 ve AI beyanı
+DURUM        : TAMAMLANDI - repo PRIVATE, CI yeşil, Release v1.0.0 yayınlandı
+TARİH        : 29.10.2026
 ================================================================================
 
 1) YÖNETİCİ ÖZETİ
 -----------------
-| Kalem                    | Sonuç                                          |
-|--------------------------|------------------------------------------------|
-| Oluşturulan belgeler     | GELISTIRICI_REHBERI.md, FORK_REHBERI.md,       |
-|                          | CONTRIBUTING.md, ROADMAP.md                    |
-| Güncellenen              | README.md (4 bağlantı), bu rapor               |
-| Kod değişikliği          | YOK                                            |
-| Yeni migration           | YOK; şema v7                                   |
-| Yeni bağımlılık          | YOK                                            |
-| Yeni test                | YOK; 453 -> 453                                |
-| Belgelerin dili          | Türkçe (teknik terimler İngilizce)             |
-| Kalite kontrol           | 7 kontrolün 7'si temiz                         |
-| Hızlı testler            | 432 geçti, 0 başarısız, 21 ağır atlandı        |
-| Release derlemesi        | Geçti; 19.828.736 bayt                         |
+| Kalem                  | Sonuç                                              |
+|------------------------|----------------------------------------------------|
+| GitHub deposu          | https://github.com/furcanomer/OnMuhasebe           |
+| Görünürlük             | PRIVATE (kullanıcı seçimi: 2)                      |
+| İlk commit             | ee23f2a - 125 dosya                                |
+| CI                     | YEŞİL - 25 dk 25 sn (run 40768991411)              |
+| Release                | v1.0.0 YAYINLANDI (draft -> published)             |
+| Yüklenen dosyalar      | MSI + kaynak zip + SHA256SUMS (3 varlık)           |
+| Kod değişikliği        | Yalnızca SPDX yorum satırları (97 dosya)           |
+| Migration              | YOK; şema v7                                       |
+| Yeni bağımlılık        | YOK                                                |
+| Test                   | 453 -> 453 (432 hızlı geçti, 21 ağır atlandı)      |
+| AI beyanı              | 3 yerde doğrulandı (README, repo açıklaması, notes)|
+| Yönetici izni          | GEREKMEDİ                                          |
 
-Amaç: 16. aşamada yazılan yapay zekâ belgelerinin insan karşılığını üretmek:
-mimari gerekçeleri, fork/ticari kullanım çerçevesi, katkı süreci ve yol haritası.
-Bu aşamada işlev, ekran, rapor, migration veya test eklenmemiştir.
+Bu aşamada işlev, ekran, rapor, migration veya test eklenmemiştir. Proje
+GitHub'a taşınmış, CI kurulmuş, 1.0.0 sürümü yayınlanmıştır. Repo kullanıcı
+onayıyla PRIVATE bırakılmıştır.
 
 2) BAŞLANGIÇ TEMİZLİĞİ
 ----------------------
-| Ölçüm                       | Değer                              |
-|-----------------------------|------------------------------------|
-| Başlangıç proje kökü        | 8.841,08 MB / 9.018 dosya          |
-| Başlangıç target/           | 8.830,50 MB / 8.897 dosya          |
-| cargo clean                 | 8,6 GiB / 8.897 dosya silindi      |
-| Temizlik sonrası kök        | 10,58 MB / 121 dosya               |
-| Temizlik sonrası release    | Geçti (4 dk 01 sn, çıkış 0)        |
-| %TEMP%\opencode             | Yalnızca wix314 kaldı              |
-| Aşama sonu kök              | 8.025,07 MB / 7.720 dosya          |
-| Aşama sonu target/          | 8.014,44 MB / 7.595 dosya          |
+| Ölçüm                        | Değer                             |
+|------------------------------|-----------------------------------|
+| Başlangıç proje kökü         | 8.025,07 MB / 7.720 dosya         |
+| Başlangıç target/            | 8.014,44 MB / 7.595 dosya         |
+| cargo clean                  | 7,8 GiB / 7.595 dosya silindi     |
+| Temizlik sonrası kök         | 10,64 MB / 125 dosya              |
+| Temizlik sonrası derleme     | Geçti (3 dk 44 sn, çıkış 0)       |
+| Aşama sonu kök               | 8.026,43 MB / 7.891 dosya         |
+| Aşama sonu target/           | 8.014,45 MB / 7.595 dosya         |
+| Kazanılan disk (clean anı)   | ~7,8 GiB                          |
 
-- %LOCALAPPDATA%\OnMuhasebe altındaki gerçek kullanıcı verisine dokunulmadı.
-- %TEMP%\opencode\wix314 (WiX Toolset 3.14.1) silinmedi; MSI üretimi için gerekli.
-- Temizlik sonrası varlık kontrolü: Cargo.lock, Cargo.toml, README.md, LICENSE,
-  AI_DEVRALMA.md, AI_PROMPTS.md, SONUC_RAPORU.txt, build-msi.bat, src\, tests\,
-  docs\, wix\, assets\, dist\ yerinde.
-- dist\OnMuhasebe-1.0.0.msi (8.347.648 bayt) korundu.
-- Aşama sonunda proje dışında geçici dosya bırakılmadı.
+- %TEMP%\opencode altında yalnızca wix314 kaldı; bu projeye ait geçici
+  dosyalar (metadata/TSV/script) silindi.
+- %LOCALAPPDATA%\OnMuhasebe altındaki GERÇEK kullanıcı verisine dokunulmadı.
+- Varlık kontrolü: Cargo.lock, Cargo.toml, README.md, LICENSE, .gitignore,
+  AI_DEVRALMA.md, AI_PROMPTS.md, GELISTIRICI_REHBERI.md, FORK_REHBERI.md,
+  CONTRIBUTING.md, ROADMAP.md, SONUC_RAPORU.txt, build-msi.bat, wix\main.wxs,
+  src\, tests\, docs\, wix\, assets\, dist\OnMuhasebe-1.0.0.msi yerinde.
 
 3) OLUŞTURULAN / GÜNCELLENEN DOSYALAR
 -------------------------------------
-| Dosya                    | Satır | Bayt   | Durum       |
-|--------------------------|-------|--------|-------------|
-| GELISTIRICI_REHBERI.md   |   798 | 34.473 | Yeni        |
-| FORK_REHBERI.md          |   236 |  9.727 | Yeni        |
-| CONTRIBUTING.md          |   178 |  6.247 | Yeni        |
-| ROADMAP.md               |   176 |  8.906 | Yeni        |
-| README.md                |   591 | 33.519 | Güncellendi |
-| SONUC_RAPORU.txt         |   -   |    -   | Güncellendi |
+| Dosya                            | Satır | Bayt  | Durum       |
+|----------------------------------|-------|-------|-------------|
+| rust-toolchain.toml              |     4 |    86 | Yeni        |
+| .github/workflows/ci.yml         |    56 | 1.500 | Yeni        |
+| .github/workflows/security.yml   |    28 |   592 | Yeni        |
+| THIRD_PARTY_LICENSES.md          |   290 |12.078 | Yeni        |
+| RELEASE_NOTES.md                 |    98 | 3.810 | Yeni        |
+| SHA256SUMS.txt                   |     2 |   181 | Yeni        |
+| README.md                        |   593 |33.916 | Güncellendi |
+| .gitignore                       |    43 |   623 | Güncellendi |
+| src/**, tests/**, build.rs       |   -   |   -   | SPDX (97)   |
+| SONUC_RAPORU.txt                 |   -   |   -   | Güncellendi |
 
-README değişikliği: "Belgeler" bölümüne "Geliştirici belgeleri" alt başlığı ve
-4 bağlantı eklendi. Mevcut metne dokunulmadı.
+- rust-toolchain.toml: channel = "1.99.1" (yerel rustc 1.99.1 ile aynı),
+  bileşenler rustfmt + clippy, profil minimal. 20 yıl sonra aynı derleyici.
+- ci.yml: Windows runner; fmt --check, clippy -D warnings, test --all-targets,
+  build --release. Ağır testler (--ignored) CI'da çalışmaz.
+- security.yml: haftalık RustSec audit (Pazartesi 03:00 UTC) + elle tetikleme.
+- .gitignore: 22 kuralın 21'i zaten vardı; eksik olan Cargo.toml.bak eklendi.
+- README: başlığın hemen altına AI beyanı bloğu eklendi; başka değişiklik yok.
 
-Her dört belge "Son güncelleme: 2026-10-27" satırıyla biter (aşama şartnamesi).
-Telif: (c) 2026, @furcanomer - Lisans: BSD 3-Clause.
+4) SPDX BAŞLIKLARI
+------------------
+| Kalem                    | Değer                                        |
+|--------------------------|----------------------------------------------|
+| Eklenen dosya            | 97 (70 src + 26 tests + build.rs)            |
+| Başlık                   | // SPDX-License-Identifier: BSD-3-Clause     |
+|                          | // Copyright (c) 2026, @furcanomer           |
+| Atlanan (zaten vardı)    | 0                                            |
+| Kod davranışı            | Değişmedi (yalnızca yorum satırı)            |
+| Satır sonu / BOM         | LF korundu; BOM eklenmedi (0/96)             |
 
-4) BELGE İÇERİK ÖZETİ
-----------------------
-| Belge                  | Kapsam                                            |
-|------------------------|---------------------------------------------------|
-| GELISTIRICI_REHBERI.md | 14 bölüm: kimin için, mimari kararların gerekçesi,|
-|                        | katman sınırları, veri modeli mantığı, para/miktar,|
-|                        | test felsefesi, özellik ekleme, tuzaklar, test     |
-|                        | yazma, stil, hata ayıklama, performans, sürümleme, |
-|                        | katkı                                             |
-| FORK_REHBERI.md        | BSD 3-Clause hakları ve 3. madde, fork adımları,   |
-|                        | upstream senkronu, MSI kimlikleri, ticari satış,   |
-|                        | sık hatalar, fork kontrol listesi                 |
-| CONTRIBUTING.md        | Davranış kuralları, issue/PR akışı, ortam kurulumu,|
-|                        | stil ve test ölçütleri, commit biçimi, AI beyanı   |
-| ROADMAP.md             | Mevcut durum, kısa vadeli planlar, fork'a bırakılan|
-|                        | 13 özellik, yapılmayacaklar, 2.0 vizyonu, semver,  |
-|                        | aşama 18 notu                                     |
-
-5) GELISTIRICI_REHBERI.md ANA BÖLÜMLERİ
----------------------------------------
-| #  | Bölüm                       | İçerik                              |
-|----|-----------------------------|-------------------------------------|
-| 1  | Bu Belge Kimin İçin         | Hedef kitle, ön koşullar, kurulum   |
-| 2  | Neden Bu Mimari             | 8 karar: tablo + gerekçe/bedel      |
-| 3  | Katmanlar ve Sınırlar       | ASCII diyagram, katman tablosu,     |
-|    |                             | doğru/yanlış örnek, fatura yolculuğu|
-| 4  | Veri Modelinin Mantığı      | 14 tablo gerekçesi, türetilmiş      |
-|    |                             | bakiye, denormalize stok, snapshot  |
-| 5  | Para ve Miktar              | Money/Quantity API, yuvarlama,      |
-|    |                             | formül, yasaklar                    |
-| 6  | Test Felsefesi              | Piramit, korelasyon, yerleşim,      |
-|    |                             | ignore, determinizm                 |
-| 7  | Yeni Özellik Ekleme         | A ekran, B migration, C rapor,      |
-|    |                             | D para/miktar, E yetki              |
-| 8  | Sık Karşılaşılan Tuzaklar   | 12 satırlık tablo + 2 ayrıntı       |
-| 9  | Test Yazma Rehberi          | Birim/entegrasyon/ağır şablonları   |
-| 10 | Kod Stili                   | Biçim, lint, görünürlük, metin      |
-| 11 | Hata Ayıklama               | Log yolu, belirti tablosu, SQLite   |
-| 12 | Performans                  | Ölçüm noktaları ve yaklaşım         |
-| 13 | Sürümleme ve Release        | Sürüm kaynağı, MSI kimlikleri,      |
-|    |                             | kontrol listesi                     |
-| 14 | Katkı ve İletişim           | Belge bağlantıları                  |
-
-Kod örnekleri yalnızca gerçek kod içindir (Rust, SQL, komut); 24 kod bloğu
-dengeli açılıp kapanır. AI_DEVRALMA.md'nin kural listesi tekrarlanmaz; her kural
-"neden" sorusuyla açıklanır.
-
-6) FORK_REHBERI.md - BSD 3. MADDE ÖZETİ
----------------------------------------
-| Konu                    | Belgede yer alan açıklama                     |
-|-------------------------|-----------------------------------------------|
-| Verilen haklar          | Kopyalama, değiştirme, dağıtma, satma, kapalı |
-|                         | kaynak, özel kullanım                         |
-| 1. madde                | Telif bildirimi korunur                       |
-| 2. madde                | İkili dağıtımda lisans metni verilir          |
-| 3. madde                | @furcanomer adı ve "Ön Muhasebe" markası onay,|
-|                         | ortaklık veya sponsorluk imasında kullanılamaz|
-| Uygun örnek             | "X, @furcanomer'in Ön Muhasebe projesine       |
-|                         | dayanır."                                     |
-| İhlal örnekleri         | "Resmî sürüm", "onaylanmıştır", "ekibiyle     |
-|                         | geliştirildi", ürün adı "Ön Muhasebe Pro"     |
-| Marka                   | Kendi adınızı yaratın; 3. madde marka lisansı |
-|                         | vermez                                        |
-| Yeniden lisanslama      | Orijinal metin korunur, kendi koşullarınız    |
-|                         | ayrı bölümde eklenir                          |
-
-Belge ayrıca hukuki danışmanlık olmadığını açıkça belirtir.
-
-7) CONTRIBUTING.md - AI BEYANI
-------------------------------
-| Kalem            | İçerik                                            |
-|------------------|---------------------------------------------------|
-| Bölüm            | 7. Yapay Zekâ Kullanımı Beyanı (mevcut)           |
-| Beyan biçimi     | "AI-assisted: <araç> (<hangi kısım>)"             |
-| Zorunluluk       | Commit mesajı veya PR açıklamasında               |
-| Beklentiler      | AI_DEVRALMA.md okutulmalı, kod okunmalı, test      |
-|                  | silme/hatayı susturma yok, lisans uyumu, gerçek    |
-|                  | kullanıcı verisi paylaşılmamalı                   |
-
-8) ROADMAP.md - FORK'A BIRAKILANLAR
------------------------------------
-Belgede "1.0'da YOKTUR ve @furcanomer tarafından eklenmesi planlanmıyor"
-ifadesiyle yer alan 13 başlık:
-
-1. e-Fatura / e-Arşiv gönderimi
-2. PDF fatura ve yazdırma
-3. XLSX dışa aktarma
-4. Çoklu şirket (multi-tenant)
-5. Döviz ve kur takibi
-6. Virman (hesaplar arası transfer)
-7. Çek / senet
-8. Ağ paylaşımı / çok kullanıcı
-9. Otomatik güncelleme
-10. Bulut senkron
-11. Mobil uygulama
-12. Kod imzalama
-13. Çoklu dil (i18n)
-
-Ayrıca "yapılmayacaklar" (7 başlık): genel muhasebe, vergi beyannamesi, bordro,
-ERP/üretim, cloud-only, reklam/telemetri, zorunlu aktivasyon.
-Otomatik güncelleme maddesinde, mevcut sürümde güncellemenin yeni MSI'ın elle
-kurulmasıyla yapıldığı belirtilir; kodda indirme/kurma özelliği yoktur.
-
-9) KOD DEĞİŞİKLİĞİ VE SINIRLAR
-------------------------------
-- Kod değişikliği YOK; src\ ve tests\ altındaki hiçbir dosya düzenlenmedi.
-- Yeni migration YOK; MIGRATIONS listesi v1..v7.
-- Yeni test YOK; mevcut 453 test korundu.
-- Yeni bağımlılık YOK; Cargo.toml ve Cargo.lock değişmedi.
-- Var olmayan özellikler yalnızca "yoktur" bağlamında anıldı.
-
-10) KODDAN DOĞRULANAN OLGULAR
+5) gh CLI VE KİMLİK DOĞRULAMA
 -----------------------------
-| Doğrulanan                          | Kaynak                        |
-|-------------------------------------|-------------------------------|
-| 9 görünüm, title/description/is_ready| src\app.rs                   |
-| is_ready yalnızca menü ipucu         | src\ui\navigation.rs         |
-| 6 rapor türü                         | src\report.rs                |
-| 4 ayar sekmesi, 17 kısayol           | src\ui\settings.rs, shortcuts|
-| 5 hatalı giriş -> 30 sn, min 8 karakter| src\auth.rs               |
-| Otomatik kilit 15 dk, yedek 24 saat  | src\settings.rs, app.rs      |
-| Rotasyon 30/12/5, .onm-backup        | src\backup.rs                |
-| PRAGMA: FK, WAL, busy_timeout=5000   | src\db\mod.rs                |
-| SchemaTooNew / MigrationChainBroken  | src\db\migrations.rs         |
-| v4 tablo yeniden oluşturma kalıbı    | src\db\migrations.rs         |
-| Yuvarlama: yarım kuruş sıfırdan uzağa| src\money.rs                 |
-| Quantity 1/1000, 3 ondalık           | src\quantity.rs              |
-| IBAN 26 karakter, TR + rakam (mod-97 yok)| src\cash.rs             |
-| Avans: dağıtılmayan ödeme tutarı     | src\payment.rs               |
-| CSV: ';' + UTF-8 BOM                 | src\csv.rs                   |
-| Arama: 4 grup x 5, toplam 20         | src\db\search.rs             |
-| Yerleşim testi: run_ui + 900x600     | tests\stress\ui_health.rs    |
-| Korelasyon denetimi                  | tests\stress\mod.rs          |
-| MSI: UpgradeCode sabit, Product Id=* | wix\main.wxs, build-msi.bat  |
-| Log: ...\data\logs, 10 MB, 30 gün    | src\config.rs, logging.rs    |
+| Kalem          | Sonuç                                             |
+|----------------|---------------------------------------------------|
+| gh sürümü      | 2.103.2 (2026-10-23) - zaten kuruluydu            |
+| Kimlik         | github.com, hesap: furcanomer (keyring)           |
+| Protokol       | HTTPS                                             |
+| Token kapsamı  | gist, read:org, repo, workflow                    |
+| gh api user    | furcanomer                                        |
+| Ek giriş       | GEREKMEDİ (oturum zaten açıktı)                   |
 
-Belgede yer alan tüm sayısal iddialar (299+110+23=432, 21 ignored, 8.347.648
-bayt MSI, 19.828.736 bayt exe) bu aşamada yeniden ölçüldü.
+Yönetici izni kullanılmadı; hiçbir komut yükseltilmiş yetki istemedi.
 
-11) KALİTE KONTROL (POWERSHELL TEK SATIR)
------------------------------------------
-Komut: 4 belgeyi tarar; dosya varlığı, son satır, "MIT", "TODO/TBD/FIXME",
-README bağlantıları, kod çiti dengesi ve U+FFFD denetlenir.
+6) DEPO VE CI
+-------------
+| Kalem            | Sonuç                                          |
+|------------------|------------------------------------------------|
+| Depo             | https://github.com/furcanomer/OnMuhasebe       |
+| Görünürlük       | PRIVATE                                        |
+| Varsayılan dal   | main                                           |
+| İlk commit       | ee23f2a "Initial commit: On Muhasebe v1.0.0"   |
+| Commit'lenen     | 125 dosya (target/ ve dist/ ignore)            |
+| Remote           | origin -> https://github.com/furcanomer/...    |
+| CI run           | 40768991411 - success - 25 dk 25 sn            |
+| CI adımları      | fmt, clippy, test, build --release: tümü yeşil |
+| Not              | actions/checkout@v4 ve actions/cache@v4 için   |
+|                  | Node.js 20 uyarısı (hata değil, anotasyon)     |
+| Security Audit   | Aktif; zamanlanmış (henüz koşmadı)             |
 
-| Kontrol        | Sonuç | Not                                          |
-|----------------|-------|----------------------------------------------|
-| DOSYA          | 4/4   | Dört belge de mevcut                         |
-| SON_SATIR      | 4/4   | Hepsi "Son güncelleme: 2026-10-27"           |
-| MIT            | 0     | Lisans yalnızca BSD 3-Clause                 |
-| TODO_TBD_FIXME | 0     | Eksik/askıda bölüm yok                       |
-| README_LINK    | 4/4   | Dört bağlantı da mevcut                      |
-| FENCE_DENGESI  | 4/4   | Açılan = kapanan (24 + 8 + 5 + 0 blok)       |
-| U+FFFD         | 0     | Beş dosyada da bozuk karakter yok            |
+CI süresi: bağımlılıkların Windows runner'da ilk kez derlenmesi (~20 dk) +
+testler. target/ bilinçli olarak önbelleğe alınmadı (8 GB, önbellek sınırı);
+yalnızca ~/.cargo/registry ve ~/.cargo/git önbelleklenir.
 
-Ek kontrol: belgelerdeki göreli Markdown bağlantıları dosya sisteminde
-doğrulandı; kırık bağlantı 0.
+7) RELEASE v1.0.0
+-----------------
+| Kalem          | Sonuç                                             |
+|----------------|---------------------------------------------------|
+| Etiket         | v1.0.0 -> ee23f2a                                 |
+| Durum          | YAYINLANDI (draft -> published)                   |
+| Yayın zamanı   | 2026-10-28 21:40:24 UTC                           |
+| URL            | https://github.com/furcanomer/OnMuhasebe/         |
+|                | releases/tag/v1.0.0                              |
+| Başlık         | Ön Muhasebe v1.0.0                                |
+| Notlar         | RELEASE_NOTES.md                                  |
 
-12) TEST SONUÇLARI (KOD DEĞİŞMEDİ)
-----------------------------------
-| Koşu                                      | Sonuç                 |
-|-------------------------------------------|-----------------------|
-| cargo fmt --check                         | Geçti                 |
-| cargo check --all-targets                 | Geçti (1 dk 12 sn)    |
-| cargo clippy --all-targets -- -D warnings | Geçti, 0 uyarı        |
-| cargo test --all-targets                  | 432 geçti, 21 atlandı |
-| cargo build --release                     | Geçti (1 dk 35 sn)    |
+Yüklenen varlıklar:
+
+| Dosya                        | Bayt     | SHA-256 (ilk 16)   |
+|------------------------------|----------|--------------------|
+| OnMuhasebe-1.0.0.msi         | 8.347.648| b28ce6829173cce1   |
+| OnMuhasebe-1.0.0-kaynak.zip  |   621.951| 7ba5c82af9c27552   |
+| SHA256SUMS.txt               |       181| -                  |
+
+Tam özetler SHA256SUMS.txt içindedir ve GitHub'ın hesapladığı digest ile
+birebir eşleşmiştir. MSI repoya commit EDİLMEDİ (dist/ ignore); yalnızca
+Release varlığı olarak yüklendi. Kaynak zip `git archive HEAD` ile üretildi
+(target/, dist/ ve .git hariç).
+
+8) ÜÇÜNCÜ TARAF LİSANSLARI
+--------------------------
+| Kalem                        | Değer                                  |
+|------------------------------|----------------------------------------|
+| Kaynak                       | cargo metadata + cargo tree (Windows   |
+|                              | x64, normal + build bağımlılıkları)    |
+| Listelenen crate             | 229                                    |
+| Farklı lisans ifadesi        | 23                                     |
+| Zorunlu GPL/AGPL             | 0                                      |
+| Baskın lisanslar             | MIT OR Apache-2.0 (125), Apache-2.0 OR |
+|                              | MIT (22), MIT (21), Unicode-3.0 (18)   |
+| Tek copyleft seçenekli crate | self_cell 1.3.0:                      |
+|                              | Apache-2.0 OR GPL-2.0-only (Apache     |
+|                              | seçildi)                               |
+| Dev bağımlılıkları           | tempfile, sysinfo (dağıtıma girmez)    |
+
+GPL/AGPL zorunluluğu bulunmadığı için DURDURMA gerekmedi. Lisans adları
+gereği belgede "MIT" sözcüğü geçer (şartname bunu istiyor); 16-17. aşamadaki
+"kök Markdown'da MIT geçmesin" kuralı bu belge için bilinçli istisnadır.
+
+9) AI BEYANI - 3 YER
+--------------------
+| Yer                        | Durum | İçerik özeti                     |
+|----------------------------|-------|----------------------------------|
+| README.md (başlık altı)    | VAR   | LLM desteği + insan denetimi     |
+| Repo açıklaması (GitHub)   | VAR   | "... Yapay Zeka Beyanı: ..."     |
+| RELEASE_NOTES.md           | VAR   | "Yapay Zeka Beyanı" bölümü       |
+
+Repo açıklaması (245 karakter):
+"Ön Muhasebe - Windows için yerel masaüstü ön muhasebe programı (Rust + egui +
+SQLite). BSD 3-Clause, telif @furcanomer. Yapay Zeka Beyanı: kaynak kodu,
+belgeler ve metinler insan yönlendirmesi ve denetimi altında LLM desteğiyle
+geliştirilmiştir."
+
+10) KULLANICI ONAYI
+-------------------
+Sunulan seçenekler: (1) yayınla + PUBLIC, (2) yayınla + PRIVATE,
+(3) dokunma + raporla.
+
+| Kalem          | Sonuç                                            |
+|----------------|--------------------------------------------------|
+| Seçim          | 2 - "Yayınla, PRIVATE kalsın, raporla"           |
+| Release        | Yayınlandı (draft=false)                         |
+| Repo           | PRIVATE kaldı (public YAPILMADI)                 |
+| Public izni    | Verilmedi; bu aşamada public işlemi yapılmadı    |
+
+11) TEST VE DERLEME (KOD DEĞİŞMEDİ)
+-----------------------------------
+| Koşu                                      | Sonuç                |
+|-------------------------------------------|----------------------|
+| cargo fmt --check                         | Geçti                |
+| cargo check --all-targets                 | Geçti (1 dk 13 sn)   |
+| cargo clippy --all-targets -- -D warnings | Geçti, 0 uyarı       |
+| cargo test --all-targets                  | 432 geçti, 21 atlandı|
+| cargo build --release                     | Geçti (1 dk 33 sn)   |
+| CI (Windows runner)                       | Yeşil (25 dk 25 sn)  |
 
 | Test grubu                | Önce | Sonra |
 |---------------------------|------|-------|
@@ -246,8 +212,9 @@ doğrulandı; kırık bağlantı 0.
 
 Release exe: target\release\OnMuhasebe.exe, 19.828.736 bayt (değişmedi).
 
-13) DERLEME VE ÇALIŞTIRMA KOMUTLARI
------------------------------------
+12) KOMUTLAR
+-------------
+Geliştirme / doğrulama:
 cargo fmt --check
 cargo check --all-targets
 cargo clippy --all-targets -- -D warnings
@@ -259,15 +226,37 @@ build-msi.bat            (release + dist\OnMuhasebe-1.0.0.msi)
 Ağır testler (yerel, release):
 cargo test --release -- --ignored --test-threads=1
 
-14) SONRAKİ AŞAMA (18) İÇİN NOTLAR
+Yayın / depo:
+git archive --format=zip --output=dist\OnMuhasebe-1.0.0-kaynak.zip HEAD
+gh release view v1.0.0
+gh repo view furcanomer/OnMuhasebe --json visibility,url
+gh run list --limit 5
+
+13) SINIRLAR VE DİKKAT EDİLENLER
+--------------------------------
+- Yeni işlev, ekran, rapor, migration, test ve runtime bağımlılığı YOK.
+- Kod değişikliği yalnızca 97 dosyada SPDX yorum satırıdır; davranış aynı.
+- MSI repoya commit edilmedi; .gitignore'daki /dist/ ve *.msi kuralları geçerli.
+- Kod imzalama ve otomatik güncelleme YOK; SmartScreen uyarısı sürüm
+  notlarında açıkça belirtildi.
+- CI'da ağır testler çalıştırılmadı (süre/disk).
+- Repo PUBLIC yapılmadı; kullanıcı onayı yok.
+
+14) SONRAKİ AŞAMA (19) İÇİN NOTLAR
 ----------------------------------
-- 18. aşama: GitHub deposu, CI ve Release. ROADMAP.md 8. bölümde taslak var.
-- CI adımları: fmt --check, clippy -D warnings, test --all-targets (Windows
-  runner). Ağır testler CI'da çalıştırılmamalı (süre ve disk).
-- Depoya girmemesi gerekenler: target\, dist\, *.msi, *.db, loglar (.gitignore
-  hâlihazırda kapsıyor).
-- Release: dist\OnMuhasebe-<sürüm>.msi + sürüm notları; kod imzalama kapsam dışı.
-- Ekran görüntüleri hâlâ eklenmedi (15. aşama rehberi geçerli).
-- FORK_REHBERI.md, 18. aşamada gerçek depo adresiyle güncellenebilir.
+- 19. aşama önerisi: 20 yıl dayanıklılık (bağımlılık sabitleme, arşiv),
+  kaynak arşivi + bağımsız derleme talimatı, kod imzalama rehberi
+  (self-signed sertifika, SmartScreen).
+- İlk CI koşusu ~25 dk; sonraki koşularda kayıt defteri önbelleği devreye
+  girer, süre kısalır. target/ önbelleği bilinçli olarak kapalı.
+- actions/checkout@v4 ve actions/cache@v4 Node.js 20 uyarısı veriyor;
+  ileride v5'e yükseltilebilir (davranış değişmez).
+- Security Audit zamanlanmıştır (Pazartesi 03:00 UTC); ilk koşudan sonra
+  issue açarsa değerlendirilmeli.
+- Repo public yapılmak istenirse:
+  gh repo edit furcanomer/OnMuhasebe --visibility public \
+    --accept-visibility-change-consequences
+- Ekran görüntüleri (15. aşama rehberi) hâlâ eklenmedi; docs/EKRAN_GORUNTULERI
+  altına eklendiğinde README'deki bağlantı hazır.
 - Bu aşamadan sonra kendiliğinden bir sonraki aşamaya geçilmemiştir.
 ================================================================================

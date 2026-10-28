@@ -1,0 +1,2 @@
+b28ce6829173cce1722433fa5b72cf54631d01792afe2fbb3e2721e5de278d97  OnMuhasebe-1.0.0.msi
+7ba5c82af9c27552bdbd17d6cad9075b76d1bca598f44251fbd9f2170e3d896d  OnMuhasebe-1.0.0-kaynak.zip
