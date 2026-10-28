@@ -1,0 +1,28 @@
+name: Security Audit
+
+on:
+  schedule:
+    # Her Pazartesi 03:00 UTC
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  checks: write
+
+jobs:
+  audit:
+    name: cargo audit (RustSec)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      - name: RustSec denetimi
+        uses: rustsec/audit-check@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Not: İlk sürümde yalnızca audit yeterlidir. İleride cargo-deny
+      # (lisans + kaynak + yasaklı crate kuralları) eklenebilir.

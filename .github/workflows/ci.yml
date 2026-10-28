@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Windows x64 derleme ve test
+    runs-on: windows-latest
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      - name: Rust kur (1.99.1)
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.99.1
+          components: rustfmt, clippy
+
+      # target/ bilinçli olarak önbelleğe alınmaz: 8 GB'ı aşar ve GitHub
+      # Actions önbellek sınırını zorlar; kayıt defteri önbelleği yeterlidir.
+      - name: Cargo önbelleği
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: cargo fmt --check
+        run: cargo fmt --all -- --check
+
+      - name: cargo clippy
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: cargo test (hızlı testler)
+        run: cargo test --all-targets
+
+      - name: cargo build --release
+        run: cargo build --release
+
+      # Ağır testler (--ignored) CI'da çalıştırılmaz: süre ve disk maliyeti
+      # yüksektir; release öncesi yerelde tek iş parçacığıyla koşulur:
+      #   cargo test --release -- --ignored --test-threads=1

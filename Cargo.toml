@@ -1,0 +1,65 @@
+[package]
+name = "on_muhasebe"
+version = "1.0.0"
+edition = "2024"
+description = "Ön Muhasebe - Yerel masaüstü ön muhasebe programı (Rust + egui + SQLite)"
+license = "BSD-3-Clause"
+authors = ["@furcanomer"]
+repository = "https://github.com/furcanomer/OnMuhasebe"
+homepage = "https://github.com/furcanomer/OnMuhasebe"
+publish = false
+
+# Çekirdek kütüphane: yapılandırma, veritabanı, iş mantığı ve arayüz katmanları.
+[lib]
+name = "on_muhasebe"
+path = "src/lib.rs"
+
+# Windows'ta doğrudan çalıştırılabilir masaüstü uygulaması.
+[[bin]]
+name = "OnMuhasebe"
+path = "src/main.rs"
+
+[dependencies]
+# Arayüz: Rust ile native masaüstü penceresi ve widget'lar.
+eframe = "0.37.0"
+egui = "0.37.0"
+
+# Veri kalıcılığı: SQLite (harici DLL gerektirmemesi için "bundled").
+rusqlite = { version = "0.40.2", features = ["bundled"] }
+
+# Kullanıcının yerel uygulama verisi dizinini işletim sisteminden öğrenmek için.
+directories = "6.0.0"
+
+# Hata yönetimi.
+thiserror = "2.0.21"
+chrono = { version = "0.4.45", default-features = false, features = ["clock", "std"] }
+
+# Kimlik doğrulama: şifreler Argon2id ile PHC biçiminde saklanır.
+argon2 = "0.5"
+# Argon2 tuzu için işletim sistemi güvenli rastgele sayı üreteci.
+rand_core = { version = "0.6", features = ["getrandom"] }
+
+# Yapılandırılmış hata günlüğü (günlük dosya + seviye + panik kaydı).
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+
+# Yerel dosya aç/kaydet diyalogları (CSV ve yedek dosyaları).
+rfd = "0.17.2"
+
+[build-dependencies]
+# Yalnızca Windows exe dosya özelliklerini (telif, şirket, ürün adı) gömmek
+# için kullanılır. Derleme zamanı bağımlılığıdır; çalışma zamanı yükü yoktur.
+winres = "0.1"
+
+[dev-dependencies]
+# Testlerde geçici dizin yönetimi.
+tempfile = "3"
+# Ağır testlerde süreç RSS/bellek trendini ölçmek için (yalnızca test bağımlılığı).
+sysinfo = "0.37"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = "symbols"

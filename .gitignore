@@ -1,0 +1,43 @@
+# Derleme çıktıları
+/target/
+
+# Yerel veritabanı dosyaları (uygulama verisi kullanıcı profilinde tutulur)
+*.db
+*.db-wal
+*.db-shm
+
+# Dışa/içe aktarma ve yedek dosyaları
+*.onm-backup
+*.pre-restore-*
+*.csv
+*.xlsx
+*.pdf
+*.log
+
+# Ağır test çıktıları
+/stress-artifacts/
+
+# Uygulama log ve yedek dizinleri
+/logs/
+/backups/
+.env
+
+# Editör / işletim sistemi artıkları
+/.vs/
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# GUI ekran görüntüleri ve ikon yedekleri
+/screenshots/
+*.ico.bak
+# MSI / WiX geçici çıktıları
+/wix/target/
+/dist/
+*.wixpdb
+*.wixobj
+*.msi
+
+# Elle alınan yedekler
+Cargo.toml.bak
