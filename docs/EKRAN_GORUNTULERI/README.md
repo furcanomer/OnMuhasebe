@@ -7,11 +7,39 @@ görüntüler **elle** alınır ve bu klasöre kaydedilir.
 > Bu belge bir geliştirici rehberi değildir. Yalnızca hangi ekran görüntüsünün
 > gerektiğini, nasıl alınacağını ve nelere dikkat edileceğini açıklar.
 
+## Mevcut Görseller (17 adet)
+
+Görseller proje kökündeki `screenshots/` klasöründen bu klasöre kopyalanmıştır
+(dosya adları korunmuştur). Boyutlar yaklaşıktır.
+
+| Dosya | Boyut | Açıklama (dosya adından üretildi) |
+|-------|-------|-----------------------------------|
+| `Alis faturalari ekrani.png` | 310 KB | Alış Faturaları Ekranı |
+| `Ayarlar ekrani.png` | 348 KB | Ayarlar Ekranı |
+| `Cari hesaplar ekrani.png` | 334 KB | Cari Hesaplar Ekranı |
+| `Gelir ve gider ekrani.png` | 397 KB | Gelir ve Gider Ekranı |
+| `Genel bakis ekrani.png` | 341 KB | Genel Bakış Ekranı |
+| `Kasa ve banka ekrani.png` | 426 KB | Kasa ve Banka Ekranı |
+| `kurulum ekrani.png` | 340 KB | Kurulum Ekranı |
+| `kurulum ekrani-1.png` | 294 KB | Kurulum Ekranı 1 |
+| `kurulum ekrani-2.png` | 324 KB | Kurulum Ekranı 2 |
+| `kurulum ekrani-3.png` | 328 KB | Kurulum Ekranı 3 |
+| `kurulum ekrani-4.png` | 327 KB | Kurulum Ekranı 4 |
+| `kurulum ekrani-5.png` | 388 KB | Kurulum Ekranı 5 |
+| `kurulum ekrani-6.png` | 347 KB | Kurulum Ekranı 6 |
+| `kurulum ekrani-7.png` | 330 KB | Kurulum Ekranı 7 |
+| `Raporlar ekrani.png` | 393 KB | Raporlar Ekranı |
+| `Satis faturalari ekrani.png` | 360 KB | Satış Faturaları Ekranı |
+| `Urun ve stok ekrani.png` | 333 KB | Ürün ve Stok Ekranı |
+
+Toplam: 17 görsel, yaklaşık 5,7 MB.
+
 ## Durum
 
 - **Otomatik üretim:** Yok.
-- **Mevcut görüntüler:** Henüz eklenmedi; aşağıdaki liste elle doldurulacaktır.
-- **Hedef:** 27 görüntü (aşağıdaki tablo).
+- **Mevcut görüntüler:** 17 adet (yukarıdaki tablo).
+- **Hedef:** 27 görüntü (aşağıdaki planlanan liste); 17'si mevcut.
+
 
 ## 1. Görüntü alma kuralları
 
@@ -51,7 +79,7 @@ kaydeder; sonra kırpabilirsiniz.
 - Numara sırası korunmalıdır (01, 02, …).
 - Örnek: `04-genel-bakis.png`
 
-## 2. Gerekli ekran görüntüleri
+## 2. Planlanan Ekranlar (15. aşama listesi)
 
 | # | Dosya adı | Ekran / durum | Nasıl açılır? |
 |---|-----------|---------------|----------------|

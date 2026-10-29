@@ -995,6 +995,10 @@ Aşağıdakiler bu sürümde **yoktur**; ileride eklenmesi planlanan ayrı çal�
 - Otomatik güncelleme ve bulut yedekleme — bu sürümde yoktur
 - Ağ üzerinden çok kullanıcılı çalışma — bu sürümde yoktur
 
+## Ekran Görüntüleri
+
+İlgili ekranların görselleri: [docs/EKRAN_GORUNTULERI/](EKRAN_GORUNTULERI/)
+
 ---
 
 Son güncelleme: 2026-10-27

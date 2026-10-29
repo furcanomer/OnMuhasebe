@@ -1,6 +1,9 @@
 # Derleme çıktıları
 /target/
 
+# 20 yıl arşiv paketi (yerelde üretilir; repoya commit edilmez)
+/archive/
+
 # Yerel veritabanı dosyaları (uygulama verisi kullanıcı profilinde tutulur)
 *.db
 *.db-wal

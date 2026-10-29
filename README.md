@@ -32,6 +32,35 @@ Geliştirici belgeleri:
 > Bu README teknik bir özettir. Günlük kullanım için yukarıdaki belgeleri
 > kullanın; kurulum ve veri yolları için Kurulum Rehberi'ne bakın.
 
+## Ekran Görüntüleri
+
+![Alış Faturaları Ekranı](<docs/EKRAN_GORUNTULERI/Alis faturalari ekrani.png>)
+
+![Ayarlar Ekranı](<docs/EKRAN_GORUNTULERI/Ayarlar ekrani.png>)
+
+![Cari Hesaplar Ekranı](<docs/EKRAN_GORUNTULERI/Cari hesaplar ekrani.png>)
+
+![Gelir ve Gider Ekranı](<docs/EKRAN_GORUNTULERI/Gelir ve gider ekrani.png>)
+
+![Genel Bakış Ekranı](<docs/EKRAN_GORUNTULERI/Genel bakis ekrani.png>)
+
+Tümü için: [docs/EKRAN_GORUNTULERI/](docs/EKRAN_GORUNTULERI/)
+
+## Uzun Vadeli Dayanıklılık
+
+Bu proje, uzun yıllar boyunca çalıştırılabilir ve yeniden derlenebilir olacak
+şekilde tasarlanmıştır:
+
+- Windows 10+ native; harici runtime gerekmez (MSVC runtime statik linklidir).
+- Tüm veriler yerel SQLite dosyasında; sunucu/bulut bağımlılığı yok.
+- `Cargo.lock` tam pinli; `rust-toolchain.toml` derleyici sürümünü sabitler.
+- 1.0.0 sürümünün arşivi (MSI + kaynak + belgeler + `Cargo.lock`) ayrıca
+  paketlenmiştir (bkz. `RELEASE_NOTES.md` ve `ARSIV_NOTLARI.md`).
+- Yedekleme: `.onm-backup` dosyası SQLite veritabanının bayt kopyasıdır; herhangi
+  bir SQLite aracıyla 20 yıl sonra da açılabilir.
+- Kod imzalama yapılmamıştır; ileride imzalamak isteyenler için
+  `KOD_IMZALAMA.md` rehberi vardır.
+
 ## Yapay Zeka ile Geliştirme (Vibe Coding)
 
 Bu projeyi fork edip yapay zeka (ChatGPT, Claude, Cursor, OpenCode vb.) ile

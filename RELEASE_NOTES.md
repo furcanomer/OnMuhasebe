@@ -29,6 +29,7 @@ gerektirmeyen ön muhasebe programı.
 | Disk | Yaklaşık 200 MB (kurulum + veri) |
 | Bellek | 2 GB veya üzeri |
 | Ekran | En az 900 × 600 piksel |
+| Ek çalışma zamanı | Gerekmez; MSVC çalışma zamanı statik bağlıdır (VC++ Redistributable kurulmaz) |
 
 ## Kurulum
 

@@ -329,6 +329,10 @@ Telif hakkı (c) 2026, **@furcanomer**.
 Ayrıntılar için program klasöründeki `LICENSE` dosyasına veya
 <https://github.com/furcanomer/OnMuhasebe> adresine bakın.
 
+## Ekran Görüntüleri
+
+İlgili ekranların görselleri: [docs/EKRAN_GORUNTULERI/](EKRAN_GORUNTULERI/)
+
 ---
 
 Son güncelleme: 2026-10-27

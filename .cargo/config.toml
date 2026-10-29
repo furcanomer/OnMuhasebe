@@ -1,0 +1,5 @@
+# 20 yıl dayanıklılık: MSVC C çalışma zamanını statik bağla.
+# Böylece hedef makinede VC++ Redistributable (VCRUNTIME140.dll,
+# MSVCP140.dll) gerekmez; tek exe kendi kendine yeter.
+[build]
+rustflags = ["-C", "target-feature=+crt-static"]
