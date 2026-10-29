@@ -223,6 +223,7 @@ değişiklik yapılmadı.
 | cargo clippy --all-targets -- -D warnings    | Geçti (12 sn)      |
 | cargo test --all-targets                     | Geçti (93 sn)      |
 | cargo build --release                        | Geçti (1 dk 44 sn) |
+| GitHub Actions CI (89df625)                  | YEŞİL - 24 dk 17 sn (run 40843714909) |
 
 Test dağılımı: 432 geçti / 0 başarısız / 21 atlandı (ağır testler) = 453.
 Önceki aşama: 453 -> Bu aşama: 453 (kod değişmedi; yalnızca derleme ayarı).
