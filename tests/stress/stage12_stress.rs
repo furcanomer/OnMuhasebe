@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 12 ağır performans testleri.
+//! Ağır performans testleri.
 //!
 //! Bu testler `#[ignore]` ile işaretlidir; yalnızca release modunda ve
 //! `--ignored --test-threads=1` ile çalıştırılır.

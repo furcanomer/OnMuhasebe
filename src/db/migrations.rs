@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS app_metadata (
 /// * `code` **benzersizdir** ve büyük/küçük harf duyarsız karşılaştırılır
 ///   (`COLLATE NOCASE`), böylece `CAR-0001` ile `car-0001` çakışır.
 /// * `AUTOINCREMENT` kullanılır: silinen bir kaydın kimliği bir daha
-///   kullanılmaz. Sonraki aşamalarda cari hareketler bu `id` değerine bağlı
+///   kullanılmaz. İleride cari hareketler bu `id` değerine bağlı
 ///   olacağı için kimliklerin geri dönüşmemesi veri bütünlüğü açısından
 ///   önemlidir.
 /// * Telefon ve kimlik numaraları **TEXT** olarak saklanır; böylece baştaki

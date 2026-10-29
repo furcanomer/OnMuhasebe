@@ -51,7 +51,7 @@
 //! Bu sürümde **cari hesap**, **ürün/stok**, **alış/satış faturası**,
 //! **kasa/banka + tahsilat/ödeme**, **gelir/gider** ve **raporlama**
 //! modülleri çalışmaktadır. Raporlar salt okunurdur; dışa aktarma (CSV/Excel/
-//! PDF) sonraki aşamada ele alınacaktır.
+//! PDF) henüz desteklenmiyor.
 
 pub mod app;
 pub mod auth;

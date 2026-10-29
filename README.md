@@ -1,16 +1,12 @@
 # Ön Muhasebe
 
+> **⚠️ Erken Sürüm Uyarısı:** Bu, Ön Muhasebe'nin ilk yayınlanan sürümüdür (v1.0.1). Kapsamlı testlerden geçmiştir (453 otomatik test, ağır stres/fuzz testleri, gerçek MSI kur/kaldır testi) ancak gerçek kullanıcı verisiyle geniş ölçekli bir beta döneminden geçmemiştir. Üretim ortamında kullanmadan önce **düzenli yedek almanız** ve **kritik verilerinizi bir süre paralel olarak başka bir yerde tutmanız** önerilir. Hata bildirimleri memnuniyetle karşılanır: [GitHub Issues](https://github.com/furcanomer/OnMuhasebe/issues).
+
 > **Yapay Zeka Beyanı:** Bu projenin kaynak kodu, belgeleri ve tanıtım metinleri, [@furcanomer](https://github.com/furcanomer)'in yönlendirmesi ve denetimi altında yapay zeka (LLM) desteğiyle geliştirilmiştir. Kod, testler ve mimari kararlar insan tarafından gözden geçirilmiş ve onaylanmıştır. Hatalar veya eksikler olabilir; katkılar ve düzeltmeler memnuniyetle karşılanır.
 
 Windows üzerinde **yerel (native) masaüstü uygulaması** olarak çalışan ön muhasebe
 programı. Arayüz de iş mantığı da Rust ile yazılmıştır; tarayıcı, web sunucusu,
 Tauri veya Electron kullanılmaz. Program internet bağlantısı olmadan çalışır.
-
-> **Durum:** Bu sürüm günlük kullanıma hazırdır. Cari hesaplar, ürün ve stok,
-> alış/satış faturaları, kasa/banka ile tahsilat/ödeme, gelir/gider kayıtları,
-> altı rapor, kullanıcı ve rol yönetimi, otomatik/manuel yedekleme ve CSV
-> içe/dışa aktarma işlevlerinin tamamı çalışır durumdadır. Veriler yerel SQLite
-> veritabanında tutulur; program çevrimdışı çalışır.
 
 ## Belgeler
 
@@ -31,6 +27,22 @@ Geliştirici belgeleri:
 
 > Bu README teknik bir özettir. Günlük kullanım için yukarıdaki belgeleri
 > kullanın; kurulum ve veri yolları için Kurulum Rehberi'ne bakın.
+
+## Proje Belgeleri
+
+- [Retrospektif](RETROSPEKTIF.md) — Geliştirme sürecinin değerlendirmesi
+- [2.0'a Geçiş Rehberi](SURUM_2_GECIS.md) — Yıllar sonra sürüm atlama
+- [Sürdürücü Notları](SURDURUCU_NOTLARI.md) — Bakım, acil durum, uzun vade
+- [Kod İmzalama Rehberi](KOD_IMZALAMA.md) — İleride imzalamak istersen
+
+## Durum
+
+**v1.0.1 — Erken Sürüm** (2026-10-29). Kapsamlı otomatik testlerden geçmiştir;
+geniş ölçekli gerçek kullanıcı beta dönemi henüz tamamlanmamıştır. Hata ve öneri
+bildirimleri memnuniyetle karşılanır:
+[GitHub Issues](https://github.com/furcanomer/OnMuhasebe/issues). v1.0.0
+tarihsel kayıt. Fork'lar serbesttir (BSD 3-Clause);
+[FORK_REHBERI.md](FORK_REHBERI.md).
 
 ## Ekran Görüntüleri
 
@@ -54,7 +66,7 @@ Bu proje, uzun yıllar boyunca çalıştırılabilir ve yeniden derlenebilir ola
 - Windows 10+ native; harici runtime gerekmez (MSVC runtime statik linklidir).
 - Tüm veriler yerel SQLite dosyasında; sunucu/bulut bağımlılığı yok.
 - `Cargo.lock` tam pinli; `rust-toolchain.toml` derleyici sürümünü sabitler.
-- 1.0.0 sürümünün arşivi (MSI + kaynak + belgeler + `Cargo.lock`) ayrıca
+- 1.0.x sürümlerinin arşivi (MSI + kaynak + belgeler + `Cargo.lock`) ayrıca
   paketlenmiştir (bkz. `RELEASE_NOTES.md` ve `ARSIV_NOTLARI.md`).
 - Yedekleme: `.onm-backup` dosyası SQLite veritabanının bayt kopyasıdır; herhangi
   bir SQLite aracıyla 20 yıl sonra da açılabilir.
@@ -393,8 +405,8 @@ Bu sürümde oluşturulan tablolar:
 
 `customers` tablosunda `code` alanı **büyük/küçük harf duyarsız `UNIQUE`**'tir
 (`COLLATE NOCASE`), tür ve durum alanlarında `CHECK` kısıtları vardır. `id`
-alanı `AUTOINCREMENT`'tir; böylece kimlikler yeniden kullanılmaz ve sonraki
-aşamalarda eklenecek hareket tabloları `REFERENCES customers(id)` ile güvenle
+alanı `AUTOINCREMENT`'tir; böylece kimlikler yeniden kullanılmaz ve ileride
+eklenecek hareket tabloları `REFERENCES customers(id)` ile güvenle
 bağlanabilir. Ada, duruma ve türe göre indeksler oluşturulur.
 
 `products` tablosunda `code` **büyük/küçük harf duyarsız `UNIQUE`**, `barkod`
@@ -541,9 +553,9 @@ cargo build --release
 | `tests/invoices.rs` | Uçtan uca: fatura kesinleştirme, stok/cari etkisi, negatif stok onayı, numara benzersizliği, iptal (ters kayıt), işlem geri alma, arama/filtre, yeniden açılışta kalıcılık |
 | `tests/cash.rs` | Uçtan uca: hesap ekleme/düzenleme, ad benzersizliği, IBAN doğrulaması, açılış bakiyesi kuralı, arama/filtre, pasife alma, migration v5 |
 | `tests/payments.rs` | Uçtan uca: tam/kısmi/çoklu dağıtım, tam avans, fazla dağıtım reddi, iptal ve geri alma, fatura iptal koruması, bağıntı testleri, yeniden açılışta kalıcılık |
-| `tests/stress/` | Aşama 10: büyük veri, korelasyon, fuzz, hata enjeksiyonu, migration zinciri ve soak testleri |
+| `tests/stress/` | Büyük veri, korelasyon, fuzz, hata enjeksiyonu, migration zinciri ve soak testleri |
 
-### Ağır testler (Aşama 10)
+### Ağır testler
 
 Normal test koşusu (`cargo test --all-targets`) hızlı testleri çalıştırır;
 büyük veri, fuzz ve soak testleri `#[ignore]` ile işaretlidir ve CI'da
@@ -564,16 +576,11 @@ fatura/ödeme, 1.000 satırlı fatura, 1.000.000 para/miktar fuzz girdisi ve
 tamamlanmıştır. Geçici veritabanları `tempfile` ile oluşturulur ve test sonunda
 otomatik silinir; kullanıcı veri dizinine dokunulmaz.
 
-## Sonraki aşamalar
-
-1. Geliştirici rehberi ve mimari dokümantasyon (aşama 17)
-2. GitHub Releases yayını ve sürüm duyurusu (aşama 18)
-
-AI devir paketi (aşama 16) tamamlandı: [AI_DEVRALMA.md](AI_DEVRALMA.md) ve
-[AI_PROMPTS.md](AI_PROMPTS.md).
+## Kapsam Dışı
 
 Bu sürümde PDF/XLSX çıktısı, e-Fatura/e-Arşiv/e-Defter, çek/senet, kredi kartı,
-döviz, virman, otomatik güncelleme ve bulut yedekleme **yoktur**.
+döviz, virman, otomatik güncelleme ve bulut yedekleme **yoktur**. Planlanan
+başlıklar için [ROADMAP.md](ROADMAP.md) dosyasına bakın.
 
 ## MSI kurulum paketi
 

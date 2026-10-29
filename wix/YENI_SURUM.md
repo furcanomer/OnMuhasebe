@@ -9,7 +9,7 @@ hiçbir yerde sürüm numarası yazılmaz.
 1. `Cargo.toml` dosyasında `version = "1.0.1"` yap. **Başka yerde sürüm yazma.**
 2. Proje kökünde `build-msi.bat` dosyasını çalıştır.
 3. `dist\OnMuhasebe-1.0.1.msi` dosyası oluşur.
-4. MSI dosyasını GitHub Release'e yükle (18. aşamada).
+4. MSI dosyasını GitHub Release'e yükle.
 5. Kullanıcı MSI'yi indirip çift tıklar; eski sürüm otomatik kaldırılır,
    `%LOCALAPPDATA%\OnMuhasebe` altındaki veriler korunur.
 

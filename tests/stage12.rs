@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 12 hızlı kabul testleri: kurulum sihirbazı, kısayollar, global arama,
+//! Hızlı kabul testleri: kurulum sihirbazı, kısayollar, global arama,
 //! odak/başlık ve 900×600 arayüz çizimi.
 //!
 //! Gerçek veri dizinine dokunulmaz; her test kendi geçici dizinini kullanır.
@@ -544,7 +544,7 @@ fn pencere_basligi_ekranla_degisir() {
     assert!(overview.contains("Ön Muhasebe"));
     assert!(overview.contains("Sistem Yöneticisi"));
     assert!(overview.contains("Genel Bakış"));
-    assert!(overview.contains("v1.0.0"));
+    assert!(overview.contains(&format!("v{}", env!("CARGO_PKG_VERSION"))));
 
     app.set_view(View::Customers);
     let customers = app.window_title();

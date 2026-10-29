@@ -1,6 +1,6 @@
 [package]
 name = "on_muhasebe"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 description = "Ön Muhasebe - Yerel masaüstü ön muhasebe programı (Rust + egui + SQLite)"
 license = "BSD-3-Clause"

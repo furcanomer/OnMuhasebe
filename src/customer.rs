@@ -26,10 +26,9 @@
 //! * **Pozitif** bakiye: cari bize borçlu (bizden mal/hizmet aldı).
 //! * **Negatif** bakiye: biz cariye borçluyuz (ondan mal/hizmet aldık).
 //!
-//! Bu aşamada **tahsilat ve ödeme modülü yoktur**; bu nedenle bakiye henüz
-//! "kalan bakiye" değil, yalnızca fatura hareketlerinin net toplamıdır.
-//! Tahsilat/ödeme eklendiğinde hesaplama yalnızca [`Customer::balance`]
-//! içinde genişletilecektir; arayüz ve veritabanı şeması değişmeyecektir.
+//! Bakiye, fatura ve tahsilat/ödeme hareketlerinin net toplamıdır ve yalnızca
+//! [`Customer::balance`] içinde hesaplanır; arayüz ve veritabanı şeması bu
+//! hesaptan bağımsızdır.
 
 use std::collections::HashSet;
 
@@ -103,7 +102,7 @@ impl CustomerType {
 /// Veritabanından okunmuş cari hesap kaydı.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Customer {
-    /// Birincil anahtar (sonraki aşamalarda hareketler bu kimliğe bağlanacak).
+    /// Birincil anahtar (ileride hareketler bu kimliğe bağlanacak).
     pub id: i64,
     /// Benzersiz cari kodu.
     pub code: String,

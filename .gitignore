@@ -44,3 +44,6 @@ desktop.ini
 
 # Elle alınan yedekler
 Cargo.toml.bak
+
+# Yerel aşama/sonuç raporları (repoda izlenmez)
+SONUC_RAPORU.txt

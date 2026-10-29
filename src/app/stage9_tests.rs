@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! 9. aşama: CSV içe/dışa aktarma, yedekleme ve ekranlar arası bağlantı testleri.
+//! CSV içe/dışa aktarma, yedekleme ve ekranlar arası bağlantı testleri.
 
 use std::path::{Path, PathBuf};
 

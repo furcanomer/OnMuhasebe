@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 13 gerçek dünya senaryoları: G1, G5, G8 ve G9.
+//! Gerçek dünya senaryoları: G1, G5, G8 ve G9.
 //!
 //! Süreç öldürme testleri `#[ignore]` işaretlidir; hızlı hata/saat testleri
 //! normal `cargo test --all-targets` çalışmasında da doğrulanır.

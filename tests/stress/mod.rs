@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 10 ağır test altyapısı.
+//! Ağır test altyapısı.
 //!
 //! Bu modül üretim koduna test kancası eklemeden yalnızca genel API'yi ve
 //! SQLite'ın kendi bütünlük araçlarını kullanır. Ağır testler `#[ignore]`

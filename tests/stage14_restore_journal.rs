@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 14: gerçek GUI geri yükleme kesinti koruması (`restore.journal`).
+//! Gerçek GUI geri yükleme kesinti koruması (`restore.journal`).
 
 use std::path::{Path, PathBuf};
 

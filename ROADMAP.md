@@ -1,27 +1,27 @@
 # Yol Haritası (ROADMAP)
 
-Bu belge, 1.0.0 sonrası planları, fork'lara bırakılan özellikleri ve bilinçli
+Bu belge, v1.0.1 sonrası planları, fork'lara bırakılan özellikleri ve bilinçli
 olarak yapılmayacakları açıklar. Tarih taahhüdü içermez.
 
-## 1. Mevcut Durum (v1.0.0)
+## 1. Mevcut Durum (v1.0.1)
 
 | Kalem | Değer |
 |-------|-------|
-| Sürüm | 1.0.0 (`Cargo.toml`) |
+| Sürüm | 1.0.1 (`Cargo.toml`) — erken sürüm |
 | Şema | v7 (migration v1..v7) |
-| Tamamlanan aşamalar | 1–17 (17: geliştirici belgeleri) |
-| Planlanan aşama | 18: GitHub, CI ve Release |
+| Yayın | v1.0.1 (önerilen), v1.0.0 (tarihsel) |
 | Platform | Windows 10+ x64, native (webview yok) |
 | Test | 453 (432 hızlı + 21 ağır) |
-| Uygulama boyutu | 19.828.736 bayt (release exe) |
-| MSI boyutu | 8.347.648 bayt |
+| Uygulama boyutu | 20.065.792 bayt (release exe, statik runtime) |
+| MSI boyutu | 8.478.720 bayt |
 | Lisans | BSD 3-Clause, telif (c) 2026, @furcanomer |
 | Ekran | 9 görünüm, 6 rapor, 4 ayar sekmesi, 17 kısayol |
 | Kullanıcı | 2 rol (yönetici, operatör), Argon2id şifre |
 
-1.0.0 günlük kullanıma hazırdır: cari, ürün/stok, alış-satış faturası,
+v1.0.1 günlük kullanıma uygundur: cari, ürün/stok, alış-satış faturası,
 tahsilat/ödeme, kasa/banka, gelir/gider, raporlar, CSV, yedekleme, geri yükleme
-ve MSI kurulum paketi çalışır durumdadır.
+ve MSI kurulum paketi çalışır durumdadır. Ancak geniş ölçekli gerçek kullanıcı
+beta dönemi tamamlanmadığı için "erken sürüm" olarak işaretlenmiştir.
 
 Kapsam dışı olduğu için 1.0'da bulunmayan başlıklar: e-Fatura, PDF/XLSX çıktısı,
 çoklu şirket, döviz, virman, çek/senet, ağ paylaşımı, otomatik güncelleme ve
@@ -154,16 +154,22 @@ Ek kurallar:
 - Yedek uyumluluğu korunur: yeni sürüm eski `.onm-backup` dosyalarını
   okuyabilmelidir.
 
-## 8. Aşama 18 Notu (Planlanan)
+## 8. Sürüm ve Yayın Durumu
 
-Sıradaki aşama: GitHub deposu, CI ve Release.
+| Sürüm | Durum | Not |
+|-------|-------|-----|
+| v1.0.0 | Tarihsel | İlk yayın; statik runtime öncesi MSI |
+| v1.0.1 | **Önerilen** | crt-static, güncel belgeler, 17 ekran görüntüsü, erken sürüm notu |
 
-- Depo: kaynak + `LICENSE` + belgeler; `dist/` ve `target/` hariç.
+- Depo: kaynak + `LICENSE` + belgeler; `dist/`, `target/` ve `archive/` hariç.
 - CI: `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings`,
   `cargo test --all-targets` (Windows runner).
 - Ağır testler CI'da çalıştırılmaz; release öncesi yerelde koşulur.
-- Release: `dist\OnMuhasebe-<sürüm>.msi` + sürüm notları.
+- Release: `dist\OnMuhasebe-<sürüm>.msi` + kaynak zip + `SHA256SUMS` + sürüm
+  notları.
 - Kod imzalama kapsam dışıdır; SmartScreen uyarısı sürüm notlarında belirtilir.
+- Bakım ve sürüm çıkarma adımları: `SURDURUCU_NOTLARI.md`.
+- Sürüm atlama (2.0) planı: `SURUM_2_GECIS.md`.
 
 ## 9. İletişim
 
@@ -173,4 +179,4 @@ Sıradaki aşama: GitHub deposu, CI ve Release.
 - Fork ve ticari kullanım: `FORK_REHBERI.md`
 - Lisans: BSD 3-Clause, telif (c) 2026, @furcanomer
 
-Son güncelleme: 2026-10-27
+Son güncelleme: 2026-10-29

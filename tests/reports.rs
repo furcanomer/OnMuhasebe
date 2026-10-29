@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Raporlar aşamasının uçtan uca (gerçek SQLite) testleri.
+//! Raporların uçtan uca (gerçek SQLite) testleri.
 //!
 //! Testler yalnızca rapor okuma yollarını kullanır; her rapor çağrısından sonra
 //! cari/kasa bakiyelerinin değişmediğini doğrulayarak raporların salt okunur

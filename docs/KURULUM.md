@@ -48,7 +48,7 @@ Kurulum dosyası **GitHub Releases** sayfasından indirilir:
 2. `OnMuhasebe-<sürüm>.msi` dosyasını indirin (örnek: `OnMuhasebe-1.0.0.msi`).
 3. İndirilen dosyayı kaydettiğiniz klasörü açın.
 
-> **Not:** Releases sayfasının içeriği yayın aşamasında doldurulur. Bu belgede anlatılan
+> **Not:** Releases sayfasının içeriği yayın sırasında doldurulur. Bu belgede anlatılan
 > dosya adı biçimi `OnMuhasebe-<sürüm>.msi` şeklindedir. Sürüm numarası `Cargo.toml`
 > dosyasındaki `[package] version` değerinden gelir.
 
@@ -182,12 +182,15 @@ yazabilirsiniz.
 - Yedeklerin bir kopyasını başka bir diske almak için bkz.
   [KULLANIM_KILAVUZU.md](KULLANIM_KILAVUZU.md).
 
+> **Not:** Bu erken bir sürümdür. Üretim öncesi düzenli yedek alın; geri
+> bildirim: [GitHub Issues](https://github.com/furcanomer/OnMuhasebe/issues).
+
 ---
 
 ## 6. Güncelleme
 
 Program, **Windows Installer (MSI)** tabanlı otomatik yükseltme kullanır. Bu davranış
-gerçek MSI testiyle doğrulanmıştır (14-5 aşaması).
+gerçek MSI testiyle doğrulanmıştır (gerçek kur/kaldır testi).
 
 ### 6.1. Güncelleme adımları
 

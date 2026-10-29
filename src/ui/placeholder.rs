@@ -3,9 +3,9 @@
 
 //! Henüz geliştirilmemiş bölümler için sade bilgilendirme ekranı.
 //!
-//! Cari hesap, ürün/stok ve alış/satış faturası bölümleri bu aşamada
-//! tamamlanmıştır; bu ekran kullanıcı menüden diğer bölümlere tıkladığında
-//! sahte içerik yerine ne olduğunu açıkça anlatmak için gösterilir.
+//! Cari hesap, ürün/stok ve alış/satış faturası bölümleri tamamlanmıştır; bu
+//! ekran kullanıcı menüden diğer bölümlere tıkladığında sahte içerik yerine ne
+//! olduğunu açıkça anlatmak için gösterilir.
 
 use egui::{Label, RichText};
 

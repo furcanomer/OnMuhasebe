@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 11 ağır testleri: büyük kullanıcı listesi ve sanal aralık hesabı.
+//! Ağır testler: büyük kullanıcı listesi ve sanal aralık hesabı.
 //!
 //! Bu testler `#[ignore]` işaretlidir; `cargo test --release -- --ignored
 //! --test-threads=1` ile çalıştırılır.

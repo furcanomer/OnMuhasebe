@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 13 kurtarma testleri: G4, G6/G10, G7 ve G14.
+//! Kurtarma testleri: G4, G6/G10, G7 ve G14.
 //!
 //! G4 dosya düzeyinde güvenlik yedeğiyle kesinti simülasyonu, G6/G10 1000
 //! turluk soak + RSS trendi, G7 v1→v7 tam migration matrisi ve G14 100 bozuk

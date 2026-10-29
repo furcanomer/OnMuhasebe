@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 13 ölçek büyütme testleri: G2 (10M cari / 100M stok) ve G3 (1GB+ yedek).
+//! Ölçek büyütme testleri: G2 (10M cari / 100M stok) ve G3 (1GB+ yedek).
 //!
 //! Bu testler `#[ignore]` işaretlidir; release modunda tek iş parçacığıyla
 //! çalıştırılmalıdır. Disk yetersizse G2b/G3 yanıltıcı biçimde "geçti"

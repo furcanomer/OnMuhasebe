@@ -1,7 +1,7 @@
 # AI Devralma Belgesi — Ön Muhasebe
 
 > **Bu dosya, projeyi devralacak bir yapay zekâya yöneliktir.** İnsan geliştirici
-> rehberi için `GELISTIRICI_REHBERI.md` (17. aşamada eklenecek) dosyasına bakın.
+> rehberi için `GELISTIRICI_REHBERI.md` dosyasına bakın.
 > Belgeyi baştan sona okuyun; kod yazmadan önce 6. ve 8. bölümleri tekrar
 > okuyun. Kopyala-yapıştır başlangıç promptları için `AI_PROMPTS.md`.
 
@@ -70,7 +70,7 @@ kurulumu gerekmez. `eframe` varsayılan olarak `wgpu` çizim arka ucunu kullanı
 | `docs/` | Son kullanıcı belgeleri |
 | `tests/` | Entegrasyon ve ağır testler |
 | `wix/` | WiX kaynağı ve lisans RTF'i |
-| `SONUC_RAPORU.txt` | Aşama sonuç raporu |
+| `SONUC_RAPORU.txt` | Yerel geliştirme sonuç raporu (repoda izlenmez) |
 
 ### 3.2. `src/` — çekirdek
 
@@ -136,7 +136,7 @@ kurulumu gerekmez. `eframe` varsayılan olarak `wgpu` çizim arka ucunu kullanı
 | `navigation_links.rs` | Ekranlar arası çapraz gezinme |
 | `onboarding_screen.rs` | 4 adımlı kurulum sihirbazı durumu |
 | `shortcuts.rs` | 17 kısayol tanımı ve yönlendirme |
-| `stage9_tests.rs` | Uygulama katmanı testleri (`#[cfg(test)]`) |
+| Uygulama test modülü (`src/app/`) | Uygulama katmanı testleri (`#[cfg(test)]`) |
 
 ### 3.5. `src/ui/` — çizim katmanı
 
@@ -168,12 +168,12 @@ kurulumu gerekmez. `eframe` varsayılan olarak `wgpu` çizim arka ucunu kullanı
 |-----|--------|
 | `database.rs`, `customers.rs`, `products.rs`, `invoices.rs` | Entegrasyon testleri |
 | `payments.rs`, `cash.rs`, `income_expense.rs`, `reports.rs` | Entegrasyon testleri |
-| `stage11.rs`, `stage12.rs` | Aşama testleri |
-| `stage14_license.rs`, `stage14_restore_journal.rs` | Lisans ve geri yükleme günlüğü |
+| Kabul test dosyaları | İlk yönetici, giriş, kilit, RBAC, sihirbaz, arama, kısayollar |
+| Lisans ve geri yükleme testleri | Lisans başlıkları, exe metadata ve `restore.journal` kesinti koruması |
 | `stress.rs` → `stress/mod.rs` | Ağır test paketi (21 `#[ignore]` test) |
 | `stress/*.rs` | `integrity`, `migration_chain`, `recovery`, `fuzz`, `soak`, `scale_up`, `bulk_data`, `failure_injection`, `real_world`, `ui_health` |
 | `msi_install_test.ps1` | Gerçek MSI kur/yükselt/kaldır testi (yönetici) |
-| `msi-test-logs/` | 14-5 aşamasının kanıt günlükleri |
+| `msi-test-logs/` | MSI kur/kaldır testi kanıt günlükleri |
 
 ### 3.7. `wix/` ve `docs/`
 

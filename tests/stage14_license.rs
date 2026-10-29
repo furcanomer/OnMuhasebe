@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 14: BSD 3-Clause lisansı, @furcanomer telif sahibi ve exe metadata.
+//! BSD 3-Clause lisansı, @furcanomer telif sahibi ve exe metadata.
 
 use std::path::{Path, PathBuf};
 

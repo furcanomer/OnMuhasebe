@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 11 hızlı kabul testleri: ilk yönetici, giriş, kilit, RBAC,
+//! Hızlı kabul testleri: ilk yönetici, giriş, kilit, RBAC,
 //! yedekleme ve ayarlar.
 //!
 //! Gerçek veri dizinine dokunulmaz; her test kendi geçici dizinini kullanır.

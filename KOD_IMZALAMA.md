@@ -7,7 +7,7 @@ Windows SmartScreen "Windows korumalı bilgisayarınızı korudu / Bilinmeyen
 yayıncı" uyarısı gösterebilir. Bu beklenen davranıştır; dosya bozuk değildir.
 
 Bu belge, ileride programı dijital olarak imzalamak isteyen geliştirici için yol
-gösterir. **Bu aşamada gerçek imzalama yapılmamıştır**; yalnızca rehberdir.
+gösterir. **Bu sürümde gerçek imzalama yapılmamıştır**; yalnızca rehberdir.
 İmzalama, yönetici yetkisi ve (üretimde) ücretli sertifika gerektirir.
 
 ## 2. Kod İmzalama Nedir?

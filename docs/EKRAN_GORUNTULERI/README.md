@@ -79,7 +79,7 @@ kaydeder; sonra kırpabilirsiniz.
 - Numara sırası korunmalıdır (01, 02, …).
 - Örnek: `04-genel-bakis.png`
 
-## 2. Planlanan Ekranlar (15. aşama listesi)
+## 2. Planlanan Ekranlar
 
 | # | Dosya adı | Ekran / durum | Nasıl açılır? |
 |---|-----------|---------------|----------------|

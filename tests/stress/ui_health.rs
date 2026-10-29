@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, @furcanomer
 
-//! Aşama 13 arayüz sağlığı testleri: G10 (G6 ile birleşik), G11, G12 ve G13.
+//! Arayüz sağlığı testleri: G10 (G6 ile birleşik), G11, G12 ve G13.
 //!
 //! G11 büyük veri setinde arama sırasında arayüzün kilitlenmediğini, G12
 //! klavye kapsamını ve G13 farklı DPI değerlerinde 900×600 çizimi doğrular.

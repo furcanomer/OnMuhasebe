@@ -418,7 +418,7 @@ fn no_data_notice(ui: &mut egui::Ui) {
         "Kapsam",
         "Cari Hesap, Ürün ve Stok, Alış/Satış Faturası, Kasa/Banka \
          (tahsilat-ödeme), Gelir/Gider ve Raporlar modülleri kullanıma açıldı. \
-         Dışa aktarma (CSV/Excel/PDF) sonraki aşamada geliştirilecektir. \
+         Dışa aktarma (CSV/Excel/PDF) henüz desteklenmiyor. \
          Gösterilen tutarların tamamı gerçek kayıtlardan hesaplanır.",
     );
 }
